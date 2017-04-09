@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:5.6.35
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_USER=${DB_USER}
+  akeneo:
+    image: akeneo:1.7.0-stable
+    ports:
+      - 8080:80
+    depends_on:
+      - mysql
+    entrypoint: ["/entry/wait-for-it.sh", "mysql:3306", "--", "/bin/bash", "/entry/entry-point.sh"]
+    environment:
+      - DATABASE_HOST=mysql
+      - DATABASE_PORT=${DB_PORT}
+      - DATABASE_NAME=${DB_NAME}
+      - DATABASE_USER=${DB_USER}
+      - DATABASE_PASSWORD=${DB_PASSWORD}
+
