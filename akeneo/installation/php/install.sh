@@ -14,6 +14,7 @@ echo "    Done."
 echo "  - Installing PHP extensions"
 
 apt-get update
+
 apt-get install -y libzip-dev
 docker-php-ext-install zip
 
@@ -32,6 +33,9 @@ docker-php-ext-install gd
 pecl install apcu-4.0.11
 echo extension=apcu.so > /usr/local/etc/php/conf.d/apcu.ini
 
+apt-get install php5-mysql -y
 docker-php-ext-install pdo_mysql
+docker-php-ext-install mysqli
+
 
 echo "    Done."

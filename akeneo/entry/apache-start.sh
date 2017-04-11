@@ -3,4 +3,6 @@
 echo "Starting Apache"
 
 source /etc/apache2/envvars
-exec apache2 -D FOREGROUND
+/etc/init.d/apache2 start
+
+echo "  Done"

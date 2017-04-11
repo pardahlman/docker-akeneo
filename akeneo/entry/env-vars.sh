@@ -1,0 +1,4 @@
+#!/bin/bash
+
+PIM_VERSION=${PIM_VERSION:=1.7}
+PIM_INSTALL_DIR=${PIM_INSTALL_DIR:=/akeneo}

@@ -9,16 +9,15 @@ services:
       - MYSQL_PASSWORD=${DB_PASSWORD}
       - MYSQL_USER=${DB_USER}
   akeneo:
-    image: akeneo:1.7.0-stable
+    image: pardahlman/akeneo:1.7-stable
     ports:
       - 8080:80
     depends_on:
       - mysql
-    entrypoint: ["/entry/wait-for-it.sh", "mysql:3306", "--", "/bin/bash", "/entry/entry-point.sh"]
+    command: ["/entry/wait-for-it.sh", "mysql:3306", "--", "/bin/bash", "/entry/cmd.sh install"]
     environment:
       - DATABASE_HOST=mysql
       - DATABASE_PORT=${DB_PORT}
       - DATABASE_NAME=${DB_NAME}
       - DATABASE_USER=${DB_USER}
       - DATABASE_PASSWORD=${DB_PASSWORD}
-

@@ -1,27 +1,24 @@
 #!/bin/bash
 set -e
 
-PIM_VERSION=1.7
+source /installation/env-vars.sh
 
-echo "Downloading PIM ${PIM_VERSION} Community Eedition"
+echo "Downloading PIM ${PIM_VERSION} Community Edition and extracting it into ${PIM_INSTALL_DIR}"
 
 echo "  - Install wget"
-apt-get update
+apt-get update -q
 apt-get install -yq wget
 echo "    Done."
 
 echo "  - Download PIM archive"
-wget https://download.akeneo.com/pim-community-standard-v${PIM_VERSION}-latest-icecat.tar.gz
+wget https://download.akeneo.com/pim-community-standard-v${PIM_VERSION}-latest.tar.gz
 echo "    Done."
 
 echo "  - Unpacking PIM archive"
-tar -xzf pim-community-standard-v${PIM_VERSION}-latest-icecat.tar.gz
+tar -xzf pim-community-standard-v${PIM_VERSION}-latest.tar.gz
+mv -f pim-community-standard ${PIM_INSTALL_DIR}
 echo "    Done."
 
-echo "  - Move archive to /akeneo"
-mv pim-community-standard /akeneo
-echo "    Done."
-
-echo "  - Chaning file mode"
-chmod 775 -R /akeneo
+echo "  - Changing file mode"
+chmod 775 -R ${PIM_INSTALL_DIR}
 echo "  - Done."
