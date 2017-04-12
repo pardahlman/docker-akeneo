@@ -10,3 +10,4 @@ echo "  - Done."
 echo "  - Enabling rewrite"
 a2enmod rewrite
 echo "  - Done."
+

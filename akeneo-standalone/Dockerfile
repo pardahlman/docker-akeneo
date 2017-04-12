@@ -14,4 +14,3 @@ ENV  DATABASE_HOST=127.0.0.1 \
 RUN /install/prepare.sh && \
     /install/mysql-entry.sh && \
     /install/cleanup.sh
-

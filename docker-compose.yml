@@ -8,16 +8,21 @@ services:
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_PASSWORD=${DB_PASSWORD}
       - MYSQL_USER=${DB_USER}
+    volumes:
+      - data:/var/lib/mysql
   akeneo:
     image: pardahlman/akeneo:1.7-stable
     ports:
       - 8080:80
     depends_on:
       - mysql
-    command: ["/entry/wait-for-it.sh", "mysql:3306", "--", "/bin/bash", "/entry/cmd.sh install"]
+    entrypoint: ["/entry/wait-for-it.sh", "mysql:3306", "--", "/bin/bash", "/entry/entrypoint.sh"]
     environment:
       - DATABASE_HOST=mysql
       - DATABASE_PORT=${DB_PORT}
       - DATABASE_NAME=${DB_NAME}
       - DATABASE_USER=${DB_USER}
       - DATABASE_PASSWORD=${DB_PASSWORD}
+
+volumes:
+  data:

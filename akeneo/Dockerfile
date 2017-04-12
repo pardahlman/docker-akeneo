@@ -11,4 +11,4 @@ RUN  /installation/php/install.sh && \
 
 COPY ./entry /entry
 
-CMD /entry/cmd.sh
+ENTRYPOINT /entry/entrypoint.sh
