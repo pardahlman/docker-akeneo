@@ -1,4 +1,4 @@
-FROM akeneo:1.7.0-stable
+FROM pardahlman/akeneo:1.7-stable
 
 COPY ./mysql /install
 
