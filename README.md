@@ -8,13 +8,13 @@ This repo contains three different images:
 * `akeneo-standalone`: an all-in-one image with Akeneo PIM and MySQL (:warning: currently not ready)
 * `akeneo-edge`: experimental image with PHP7 (:warning: currently not ready)
 
-The image is published at docker hub: [`pardahlman/akeneo](https://hub.docker.com/r/pardahlman/akeneo/). 
+The image is published at docker hub: [`pardahlman/akeneo`](https://hub.docker.com/r/pardahlman/akeneo/). 
 
 ## Getting started
 
 The easiest way to getting started is by creating a `docker-compose.yml` file [similar to the one in the repo](https://github.com/pardahlman/docker-akeneo/blob/master/docker-compose.yml)
 
-```bash
+```
 > git clone https://github.com/pardahlman/docker-akeneo.git
 > cd docker-akeneo
 > docker-compose up
