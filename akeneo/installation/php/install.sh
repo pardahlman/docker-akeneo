@@ -28,6 +28,8 @@ apt-get install -y libicu-dev
 docker-php-ext-install intl
 
 apt-get install -y libpng12-dev
+apt-get install -y libjpeg-dev
+docker-php-ext-configure gd --with-jpeg-dir=/usr/include/
 docker-php-ext-install gd
 
 pecl install apcu-4.0.11
@@ -36,6 +38,7 @@ echo extension=apcu.so > /usr/local/etc/php/conf.d/apcu.ini
 apt-get install php5-mysql -y
 docker-php-ext-install pdo_mysql
 docker-php-ext-install mysqli
+docker-php-ext-install exif
 
 
 echo "    Done."

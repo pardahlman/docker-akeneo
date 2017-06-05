@@ -12,6 +12,7 @@ echo "  - Done"
 echo "  - Change owner of Akeneo Wev to www-data"
 chown www-data:www-data /akeneo/app/cache/ -R
 chown www-data:www-data /akeneo/app/logs/ -R
+chown www-data:www-data /akeneo/app/file_storage -R
 chown www-data:www-data /akeneo/web -R
 echo "  - Done."
 

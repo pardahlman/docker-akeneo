@@ -11,7 +11,7 @@ services:
     volumes:
       - data:/var/lib/mysql
   akeneo:
-    image: pardahlman/akeneo:1.7.3
+    image: pardahlman/akeneo:1.7.5
     ports:
       - 8080:80
     depends_on:
